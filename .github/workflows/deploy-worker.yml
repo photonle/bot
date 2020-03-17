@@ -30,6 +30,7 @@ jobs:
         env:
           DOCKER_HOST: ssh://${{ secrets.FTP_USER }}@git.doctor-internet.dev
           DOCKER_IMG_VERSION: latest
+          DOCKER_NAME: photon-bot
           FTP_USER: ${{ secrets.FTP_USER }}
           FTP_HOST: git.doctor-internet.dev
           COMPOSE_PROJECT_NAME: photon-bot
