@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - worker/**
+      - .github/workflows/deploy-worker.yml
 
 jobs:
   build:

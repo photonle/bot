@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - bot/**
+      - .github/workflows/deploy-bot.yml
 
 jobs:
   build:
