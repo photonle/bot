@@ -1,4 +1,4 @@
-name: Deployment
+name: Worker Deployment
 on:
   push:
     paths:

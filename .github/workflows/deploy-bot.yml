@@ -1,4 +1,4 @@
-name: Deployment
+name: Bot Deployment
 on:
   push:
     paths:
