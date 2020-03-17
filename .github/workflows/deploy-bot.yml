@@ -13,6 +13,7 @@ jobs:
       - uses: actions/checkout@master
       - name: Build & Publish Image
         uses: elgohr/Publish-Docker-Github-Action@2.7
+        id: build
         with:
           name: ${{ github.repository }}/discord
           username: ${{ github.actor }}
