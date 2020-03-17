@@ -28,6 +28,8 @@ jobs:
         with:
           private-key: ${{ secrets.SSH_KEY }}
           known-hosts: ${{ secrets.KNOWN_HOSTS }}
+      - name: Install Known Host
+        run: ssh-keyscan -t git.doctor-internet.dev
       - name: Deploy
         env:
           DOCKER_HOST: ssh://${{ secrets.FTP_USER }}@git.doctor-internet.dev
