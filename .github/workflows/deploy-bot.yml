@@ -20,6 +20,7 @@ jobs:
           registry: docker.pkg.github.com
           tag_semver: true
           snapshot: true
+          workdir: bot
       - name: Install Key
         uses: shimataro/ssh-key-action@v1.3.0
         with:
