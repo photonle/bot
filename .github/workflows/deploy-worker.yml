@@ -28,9 +28,7 @@ jobs:
         uses: shimataro/ssh-key-action@v1.3.0
         with:
           private-key: ${{ secrets.SSH_KEY }}
-          known-hosts: ${{ secrets.KNOWN_HOSTS }}
-      - name: Install Known Host
-        run: ssh-keyscan -t git.doctor-internet.dev
+          known-hosts: git.doctor-internet.dev ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDzNZoTQB3fTehRYbE0lHNTdVwhdxjEzFEiNii/7+dzRcqltu4DBYKAfqJdLY670dXeB2p0K+ejrKBCKlQnkQCoTwe5SZAOTuQxsbYWRbj8my04RvTnG4vO8r96puRQpWmPq59IlGdwCfdA5B2ajJtbqWg/9HnApM3rjPBlyIeANNaX1htQQAxoSezLMaDznl+GpFLKZknIGv9mkS/+Hsswi331WmShEuIXWwG1TRJh2k9iXmznV0HXqCn1sSlM8Ett4pK3yQpHVhl1lDsQWS9BxfRNDT6gqAc69tTYo1DVKYROwLBoNwCZk3v0Gp5ivtbTlgWwKV+ttGmV+Vgkc80V
       - name: Deploy
         env:
           DOCKER_HOST: ssh://${{ secrets.FTP_USER }}@git.doctor-internet.dev
