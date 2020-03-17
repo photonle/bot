@@ -2,7 +2,7 @@ name: Worker Deployment
 on:
   push:
     paths:
-      - runner/**
+      - worker/**
 
 jobs:
   build:
@@ -14,7 +14,7 @@ jobs:
       - name: Build & Publish Image
         uses: elgohr/Publish-Docker-Github-Action@2.7
         with:
-          name: ${{ github.repository }}/runner
+          name: ${{ github.repository }}/worker
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
