@@ -38,6 +38,6 @@ jobs:
           FTP_HOST: git.doctor-internet.dev
           COMPOSE_PROJECT_NAME: photon-bot
         run: |
-          scp $FTP_USER@$FTP_HOST:~/env-"$DOCKER_NAME" .env
+          scp $FTP_USER@$FTP_HOST:~/env/"$DOCKER_NAME" .env
           docker-compose --version
           docker-compose up -d bot
