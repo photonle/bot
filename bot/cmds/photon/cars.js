@@ -3,10 +3,10 @@ const Command = require("../reportcommand")
 module.exports = class CarsCommand extends Command {
 	constructor(client) {
 		super(client, {
-			name: 'cars',
+			name: 'car-search',
 			group: 'photon',
 			memberName: 'cars',
-			description: 'Search for vehicle names used in photon addons.',
+			description: 'Search for vehicle names used in photon addons, and returns a list of vehicle names.',
 			args: [{
 				key: 'path',
 				label: 'Vehicle Name',

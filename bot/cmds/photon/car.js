@@ -3,10 +3,10 @@ const Command = require("../findercommand")
 module.exports = class CarCommand extends Command {
 	constructor(client) {
 		super(client, {
-			name: 'car',
+			name: 'car-detail',
 			group: 'photon',
 			memberName: 'car',
-			description: 'Search for vehicle names used in photon addons.',
+			description: 'Gives detailed information on a single vehicle.',
 			args: [{
 				key: 'path',
 				label: 'Vehicle Name',
