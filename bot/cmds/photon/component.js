@@ -3,7 +3,7 @@ const Command = require("../reportcommand")
 module.exports = class ComponentCommand extends Command {
 	constructor(client) {
 		super(client, {
-			name: 'component-detail',
+			name: 'component-details',
 			group: 'photon',
 			memberName: 'component',
 			description: 'Gives detailed information on a single component.',

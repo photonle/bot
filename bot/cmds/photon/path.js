@@ -3,7 +3,7 @@ const Command = require("../reportcommand")
 module.exports = class PathCommand extends Command {
 	constructor(client) {
 		super(client, {
-			name: 'path-detail',
+			name: 'path-details',
 			group: 'photon',
 			memberName: 'path',
 			description: 'Gives detailed information on a single file path.',
