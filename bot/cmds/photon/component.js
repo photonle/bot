@@ -3,10 +3,10 @@ const Command = require("../findercommand")
 module.exports = class ComponentCommand extends Command {
 	constructor(client) {
 		super(client, {
-			name: 'component',
+			name: 'component-detail',
 			group: 'photon',
 			memberName: 'component',
-			description: 'Search for component names used in photon addons.',
+			description: 'Gives detailed information on a single component.',
 			args: [{
 				key: 'path',
 				label: 'Component Name',
