@@ -1,4 +1,4 @@
-const Command = require("../findercommand")
+const Command = require("../reportcommand")
 
 module.exports = class ComponentCommand extends Command {
 	constructor(client) {
