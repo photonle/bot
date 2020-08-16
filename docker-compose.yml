@@ -23,8 +23,6 @@ services:
       - .env
     volumes:
       - "database:/var/lib/mysql"
-    ports:
-      - "7422:3306"
   bot:
     build: bot
 #    image: docker.pkg.github.com/photonle/bot/discord:${DOCKER_IMG_VERSION}
