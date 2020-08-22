@@ -23,11 +23,9 @@ services:
       - .env
     volumes:
       - "database:/var/lib/mysql"
-    ports:
-      - "7422:3306"
   bot:
-#    build: bot
-    image: docker.pkg.github.com/photonle/bot/discord:${DOCKER_IMG_VERSION}
+    build: bot
+#    image: docker.pkg.github.com/photonle/bot/discord:${DOCKER_IMG_VERSION}
     env_file:
       - .env
     volumes:
@@ -37,8 +35,8 @@ services:
       - queue
       - db
   worker:
-#    build: worker
-    image: docker.pkg.github.com/photonle/bot/worker:${DOCKER_IMG_VERSION}
+    build: worker
+#    image: docker.pkg.github.com/photonle/bot/worker:${DOCKER_IMG_VERSION}
     env_file:
       - .env
     depends_on:
