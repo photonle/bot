@@ -14,7 +14,7 @@ module.exports = class DebugCommand extends Command {
 	}
 
 	/**
-	 * @param {CommandMessage} msg The incoming message.
+	 * @param {CommandoMessage} msg The incoming message.
 	 * @param {Object|string|Array<string>} args The command arguments.
 	 * @param {boolean} _ If the incoming message is from a pattern match.
 	 * @returns {Promise<Message>}
