@@ -22,7 +22,7 @@ module.exports = class DebugCommand extends Command {
 	async run(msg, args, _){
 		let rich = new RichEmbed()
 
-		rich.setAuthor("Doctor Internet", msg.client.users.get("239031520587808769").avatarURL, "https://limelightgaming.net/forums/user-2746.html")
+		rich.setAuthor("Doctor Internet", msg.client.users.fetch("239031520587808769").avatarURL, "https://limelightgaming.net/forums/user-2746.html")
 		rich.setDescription(`A bot by Doctor Internet\n\nDebug Information`)
 
 		rich.addField("Version", `${pkg.name}@${pkg.version}`, true)
