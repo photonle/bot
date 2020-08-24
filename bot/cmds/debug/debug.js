@@ -1,5 +1,5 @@
 const Command = require('discord.js-commando').Command
-const RichEmbed = require("discord.js").RichEmbed
+const RichEmbed = require("discord.js").MessageEmbed
 const Moment = require("moment")
 const pkg = require("../../package.json")
 
