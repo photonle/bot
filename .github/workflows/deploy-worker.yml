@@ -10,6 +10,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Get Setup Tools
+        run: sudo apt-get install python3-setuptools
       - name: Update Docker-Compose
         run: sudo pip3 install docker-compose
       - name: Checkout
