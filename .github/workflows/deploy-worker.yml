@@ -26,4 +26,5 @@ jobs:
           COMPOSE_PROJECT_NAME: photon-bot
         run: |
           scp $FTP_USER@$FTP_HOST:~/env/"$DOCKER_NAME" .env
-          docker-compose up -d --build worker
+          ssh $FTP_USER@$FTP_HOST -c 'whoami'
+#          docker-compose up -d --build worker
