@@ -3,7 +3,7 @@ on:
   push:
     paths:
       - bot/**
-      - .github/workflows/deploy-bot.yml
+      - .github/workflows/deploy-worker.yml
       - docker-compose.yml
 
 jobs:
