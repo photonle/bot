@@ -12,37 +12,20 @@ jobs:
     steps:
       - name: Update Docker-Compose
         run: sudo pip install docker-compose
-      - uses: actions/checkout@master
-      - name: Build & Publish Image
-        uses: elgohr/Publish-Docker-Github-Action@2.7
-        id: build
-        with:
-          name: ${{ github.repository }}/discord
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-          registry: docker.pkg.github.com
-          tag_semver: true
-          snapshot: true
-          workdir: bot
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Install Key
         uses: shimataro/ssh-key-action@v1.3.0
         with:
           private-key: ${{ secrets.SSH_KEY }}
-          known-hosts: git.doctor-internet.dev ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDzNZoTQB3fTehRYbE0lHNTdVwhdxjEzFEiNii/7+dzRcqltu4DBYKAfqJdLY670dXeB2p0K+ejrKBCKlQnkQCoTwe5SZAOTuQxsbYWRbj8my04RvTnG4vO8r96puRQpWmPq59IlGdwCfdA5B2ajJtbqWg/9HnApM3rjPBlyIeANNaX1htQQAxoSezLMaDznl+GpFLKZknIGv9mkS/+Hsswi331WmShEuIXWwG1TRJh2k9iXmznV0HXqCn1sSlM8Ett4pK3yQpHVhl1lDsQWS9BxfRNDT6gqAc69tTYo1DVKYROwLBoNwCZk3v0Gp5ivtbTlgWwKV+ttGmV+Vgkc80V
-      - name: Docker Login
-        uses: Azure/docker-login@v1
-        with:
-          login-server: docker.pkg.github.com
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          known-hosts: 51.68.207.67 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJaetLRp2rtHETI3eO6Wk9UgWfsiIYHu/Uvi54lHlR8l
       - name: Deploy
         env:
-          DOCKER_HOST: ssh://${{ secrets.FTP_USER }}@git.doctor-internet.dev
-          DOCKER_IMG_VERSION: ${{ steps.build.outputs.snapshot-tag }}
+          DOCKER_HOST: ssh://${{ secrets.FTP_USER }}@51.68.207.67
           DOCKER_NAME: photon-bot
           FTP_USER: ${{ secrets.FTP_USER }}
-          FTP_HOST: git.doctor-internet.dev
+          FTP_HOST: 51.68.207.67
           COMPOSE_PROJECT_NAME: photon-bot
         run: |
           scp $FTP_USER@$FTP_HOST:~/env/"$DOCKER_NAME" .env
-          docker-compose up -d bot
+          docker-compose up -d --build bot
