@@ -31,4 +31,4 @@ jobs:
         run: |
           scp $FTP_USER@$FTP_HOST:~/env/"$DOCKER_NAME" .env
           docker context create remote --docker "host=$DOCKER_HOST"
-          docker-compose up -d --build --env-file=.env --context remote worker
+          docker-compose --context remote up -d --build --env-file=.env worker
