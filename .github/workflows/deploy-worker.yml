@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Update Docker-Compose
-        run: sudo pip install docker-compose
+        run: sudo pip3 install docker-compose
       - name: Checkout
         uses: actions/checkout@v2
       - name: Install Key
