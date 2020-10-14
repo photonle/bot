@@ -30,5 +30,4 @@ jobs:
           COMPOSE_PROJECT_NAME: photon-bot
         run: |
           scp $FTP_USER@$FTP_HOST:~/env/"$DOCKER_NAME" .env
-          docker context create remote --docker "host=$DOCKER_HOST"
-          docker-compose --context remote up -d --build worker
+          docker-compose up -d --build worker
