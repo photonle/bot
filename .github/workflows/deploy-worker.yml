@@ -5,6 +5,8 @@ on:
       - bot/**
       - .github/workflows/deploy-worker.yml
       - docker-compose.yml
+    branches:
+      - master
 
 jobs:
   build:
