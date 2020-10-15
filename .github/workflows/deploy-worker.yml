@@ -26,5 +26,4 @@ jobs:
         run: |
           scp $FTP_USER@$FTP_HOST:~/env/"$DOCKER_NAME" .env
           ssh -nNT -L "$(pwd)"/docker.sock:/var/run/docker.sock $FTP_USER@$FTP_HOST &
-          ls .
           DOCKER_HOST="unix://$(pwd)/docker.sock" docker-compose up -d --build worker
