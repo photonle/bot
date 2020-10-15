@@ -41,10 +41,3 @@ services:
       - queue
       - db
     restart: always
-  adminer:
-      image: adminer
-      restart: always
-      ports:
-        - "127.0.0.1:7421:8080"
-      depends_on:
-        - db
