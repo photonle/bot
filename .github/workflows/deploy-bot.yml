@@ -19,12 +19,11 @@ jobs:
           known-hosts: 51.68.207.67 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJaetLRp2rtHETI3eO6Wk9UgWfsiIYHu/Uvi54lHlR8l
       - name: Deploy
         env:
-          DOCKER_HOST: ssh://${{ secrets.FTP_USER }}@51.68.207.67
           DOCKER_NAME: photon-bot
           FTP_USER: ${{ secrets.FTP_USER }}
           FTP_HOST: 51.68.207.67
           COMPOSE_PROJECT_NAME: photon-bot
         run: |
           scp $FTP_USER@$FTP_HOST:~/env/"$DOCKER_NAME" .env
-          docker-compose version
-          docker-compose up -d --build worker
+          ssh -nNT -L "$(pwd)"/docker.sock:/var/run/docker.sock $FTP_USER@$FTP_HOST &
+          DOCKER_HOST="unix://$(pwd)/docker.sock" docker-compose up -d --build worker
