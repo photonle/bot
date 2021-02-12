@@ -26,7 +26,7 @@ services:
     volumes:
       - "database:/var/lib/mysql"
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin:apache
+    image: phpmyadmin/phpmyadmin:latest
     restart: always
     ports:
       - "10000:80"
