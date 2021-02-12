@@ -30,6 +30,6 @@ def migration_ran(id):
 	curs = con.cursor()
 	try:
 		data = curs.execute("SELECT * FROM migrations WHERE mid = %s", (id,))
-		return len(data) > 0
+		return id == "init" and True or (len(data) > 0)
 	except:
 		return False
