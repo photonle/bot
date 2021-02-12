@@ -32,6 +32,8 @@ services:
       - "10000:80"
     depends_on:
       - db
+    env_file:
+      - .env
   bot:
     build: bot
     env_file:
