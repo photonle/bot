@@ -17,7 +17,7 @@ def migration_ran(id):
 def migration(id, curs):
 	curs.execute(load_migration(id))
 
-def migrations()
+def migrate()
 	con = get_connection()
 	curs = con.cursor()
 
