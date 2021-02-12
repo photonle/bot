@@ -24,3 +24,12 @@ def load_migration(id):
 
 def load_statement(id):
 	return load_file(id, "statements")
+
+def migration_ran(id):
+	con = get_connection()
+	curs = con.cursor()
+	try:
+		data = curs.execute("SELECT * FROM migrations WHERE mid = %s", (id,))
+		return len(data) > 0
+	except:
+		return False
