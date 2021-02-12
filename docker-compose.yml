@@ -25,6 +25,13 @@ services:
       - .env
     volumes:
       - "database:/var/lib/mysql"
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:apache
+    restart: always
+    ports:
+      - "10000:80"
+    depends_on:
+      - db
   bot:
     build: bot
     env_file:
