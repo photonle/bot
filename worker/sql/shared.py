@@ -19,17 +19,10 @@ def load_file(id, path="migrations")
 	with file as open(path, "r"):
 		return file.read()
 
-def load_migration(id):
-	return load_file(id)
-
-def load_statement(id):
-	return load_file(id, "statements")
-
-def migration_ran(id):
-	con = get_connection()
-	curs = con.cursor()
-	try:
-		data = curs.execute("SELECT * FROM migrations WHERE mid = %s", (id,))
-		return id == "init" and True or (len(data) > 0)
-	except:
-		return False
+def load_statement(id, data = {}, path="migrations"):
+	content = load_file(id, path)
+	for key in data.keys():
+		k = "{{" + key + "}}"
+		v = data[key]
+		content = content.replace(k, v)
+	return content
