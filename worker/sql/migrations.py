@@ -36,7 +36,7 @@ def migrate():
         if not migration_ran("init"):
             migration("init", curs)
 
-        for mig in migrations.values():
+        for mig in migrations:
             pair = splitext(mig)
             id = pair[0]
             if not migration_ran(id):
