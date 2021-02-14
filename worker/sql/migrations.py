@@ -25,7 +25,8 @@ def migrate():
     con = get_connection()
     curs = con.cursor()
 
-    curs.execute("BEGIN TRANSACTION;")
+    curs.execute("SET autocommit = OFF;")
+    curs.execute("START TRANSACTION;")
 
     base_path = join(dirname(realpath(__file__)), "migrations")
     migrations = [file for file in listdir(base_path) if isfile(join(base_path, file))]
