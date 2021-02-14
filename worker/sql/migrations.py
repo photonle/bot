@@ -1,6 +1,7 @@
 from os import listdir
 from os.path import isfile, join, splitext, dirname, realpath
 from .shared import load_file, get_connection
+from logging import debug
 
 
 def load_migration(id):
@@ -39,10 +40,10 @@ def migrate():
         for mig in migrations:
             pair = splitext(mig)
             id = pair[0]
-            print("Checking migration", mig)
+            debug("Checking migration: " + mig)
             if not migration_ran(id):
-                print("\tmigration", mig)
                 migration(id, curs)
+                debug("Ran migration:" + mig)
     except:
         curs.execute("ROLLBACK;")
         raise
