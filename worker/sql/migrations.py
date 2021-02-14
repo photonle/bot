@@ -1,6 +1,6 @@
 from os import listdir
 from os.path import isfile, join, splitext
-from shared import load_file
+from .shared import load_file
 
 def load_migration(id):
 	return load_file(id)
