@@ -1,0 +1,1 @@
+INSERT INTO migrations (mid, name) VALUES (%s, %s);

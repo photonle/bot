@@ -20,6 +20,7 @@ def migration_ran(id):
 
 def migration(id, curs):
     curs.execute(load_migration(id))
+    curs.execute(load_statement("migrated"), (id, id,))
 
 
 def migrate():
