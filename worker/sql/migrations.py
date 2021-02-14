@@ -39,7 +39,9 @@ def migrate():
         for mig in migrations:
             pair = splitext(mig)
             id = pair[0]
+            print("Checking migration", mig)
             if not migration_ran(id):
+                print("\tmigration", mig)
                 migration(id, curs)
     except:
         curs.execute("ROLLBACK;")
